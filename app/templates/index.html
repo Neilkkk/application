@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+    <div>
+        <h1>To-do List Menu</h1>
+        <a href="/tasks"><button type="button" class="btn btn-primary">View Tasks</button></a>
+        <a href="/create_task"><button type="button" class="btn btn-primary">Create Tasks</button></a>
+        <a href="/unfinished_tasks"><button type="button" class="btn btn-primary">Unfinished Tasks</button></a>
+        <a href="/finished_tasks"><button type="button" class="btn btn-primary">Finished Tasks</button></a>
+        <a href="/search_task"><button type="button" class="btn btn-primary">Search Tasks</button></a>
+    </div>
+    <br>
+    <br>
+    <div>
+        <h2>Today Tasks</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>State</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                    <th>Change State</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for task in Tasks %}
+                <tr>
+                    <td>{{task.date}}</td>
+                    <td>{{task.title}}</td>
+                    <td>{{task.description}}</td>
+                    <td>{% if task.state %}
+                        <span class="glyphicon glyphicon-ok"></span>
+                        {% else %}
+                        <span class="glyphicon glyphicon-remove"></span>
+                        {% endif %}
+                    </td>
+                    <td><a href="/edit_task4/{{task.id}}"><button type="button" class="glyphicon glyphicon-edit"></button></a></td>
+                    <td><a href="/delete_task4/{{task.id}}"><button type="button" class="glyphicon glyphicon-trash"></button></a></td>
+                    <td><a href="/change_state_true4/{{task.id}}"><button type="button" class="glyphicon glyphicon-thumbs-up"></button></a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+{% endblock %}

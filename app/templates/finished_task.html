@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Date</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>State</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    {% for task in Tasks %}
+        <tr>
+            <td>{{task.date}}</td>
+            <td>{{task.title}}</td>
+            <td>{{task.description}}</td>
+            <td>{% if task.state %}
+                <span class="glyphicon glyphicon-ok"></span>
+                {% else %}
+                <span class="glyphicon glyphicon-remove"></span>
+                {% endif %}
+            </td>
+            <td><a href="/delete_task2/{{task.id}}"><button type="button" class="glyphicon glyphicon-trash"></button></a></td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="http://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/static/print.css">
+    <title>To-do List</title>
+    <style>
+      ul#menu li {
+          display:inline;
+      }
+    </style>
+    <style type="text/css">.navbar{background: #FACC2E}</style>
+ </head>
+<body style="background: lightsteelblue">
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">To-do List
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="/">HomePage</a></li>
+                    <li><a href="/tasks">View Tasks</a></li>
+                    <li><a href="/create_task">Create Task</a></li>
+                    <li><a href="/unfinished_tasks">Unfinished Tasks</a></li>
+                    <li><a href="/finished_tasks">Finished Tasks</a></li>
+                    <li><a href="/search_task">Search Tasks</a></li>
+                </ul>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="/"><span class="glyphicon glyphicon-chevron-left"></span>Back</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            {% block content %}{% endblock %}
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+</body>
+</html>
